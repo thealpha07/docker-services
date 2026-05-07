@@ -1,6 +1,5 @@
-# TOMATO - Food Ordering Website
-
-This repository hosts the source code for TOMATO, a dynamic food ordering website built with the MERN Stack. It offers a user-friendly platform for seamless online food ordering.
+# Docker Services Learning Repo
+This repos has a clone project that was monolithic and built with below techs and structure which we will convert into a Docker services oriented project.
 
 ## Features
 
