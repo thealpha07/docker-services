@@ -11,26 +11,41 @@ The former means that the whole application will be a single codebase, meaning t
 - Easier for small scale projects and systems
 
 ###### Cons:
-- To heavy is we have multiple modules.
+- To heavy when we have multiple modules.
 - Minor changes require whole project to be redeployed
 - Scaling up/down a specific module is inflexible
 - Changes and version updates may break non related components as everything is tightly coupled.
   
-  
-#### Also relearnt Markdown again lol.
+###### note:
+Reminding myself to practice reading code faster and better. This project was well structured but still took a while to understand everything. Not on ownership level but I need to be good enough to work on someone else codebase.
+#### Also relearnt Markdown again lol
 `#` symbols (1-6) for heading levels. `# H1` `## H2`
+
 `*text*` or `_text_` for _italics_, 
+
 `**text**` or `__text__` for **bold**,  
+
 `~~text~~` for ~~strikethrough~~. 
+
 - Unordered: `- item` or `* item`
 - Ordered: `1. item`
 - Checklists: `- [ ] task` or `- [x] completed`
+
 backticks for inline code `` `code` `` and triple backticks for code blocks.
+
 ```
     print("Hello")
 ```
+
 `[text](url)` for inline links and `![alt](url)` for images. 
+
 `> text` to create quoted sections.
 
 three or more hyphens `---`, asterisks `***`, or underscores `___` on a line by themselves. 
+
  `\` to escape special characters like `*`, `_`, or `#`.
+
+#### Git Repo and .gitignore
+So on major thing I forgot was that not everything is to be saved in my repo. Previously we only sent core files since the CM team took care of the build, but as a Solo developer I need to understand and also keep note of the CI/CD Devops pipelines. 
+So what files to include and what to ignore? kinda confusing but let's try understanding.
+This is a MERN stack Monolith so the build files will include node modules, archives, credentials, logs, build outputs and compiled files and foremost the env files too. All these are included in the .gitignore file.
