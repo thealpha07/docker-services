@@ -10,7 +10,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Login from "./components/Login/Login";
 
 const App = () => {
-  //const url = "https://food-delivery-backend-5b6g.onrender.com";
   const url = import.meta.env.VITE_BACKEND_URL;
   return (
     <div>

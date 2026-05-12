@@ -36,6 +36,7 @@ const createToken = (id) => {
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
   try {
+    console.log("Incoming Registration! Checking database:", userModel.db.name);
     // checking user is already exist
     const exists = await userModel.findOne({ email });
     if (exists) {

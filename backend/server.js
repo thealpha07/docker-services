@@ -6,6 +6,7 @@ import userRouter from "./routes/userRoute.js";
 import "dotenv/config";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
+import userModel from "./models/userModel.js";
 
 // app config
 const app = express();
@@ -16,7 +17,16 @@ app.use(express.json());
 app.use(cors());
 
 // DB connection
-connectDB();
+connectDB().then(async () => {
+    // --- DIAGNOSTIC SCRIPT ---
+    console.log("--- FETCHING ALL USERS FROM DATABASE ---");
+    const allUsers = await userModel.find({});
+    console.log(allUsers);
+    console.log("----------------------------------------");
+});
+
+// DB connection
+//connectDB();
 
 // api endpoints
 app.use("/api/food", foodRouter);
