@@ -55,3 +55,11 @@ Hardcoding URLs are a easy way for local env Runs but in the long run it will ca
 
 Note: to make sure the user/container knows what the .env files should have we create a .env.example with dummy values that will be pushed to repo.
 
+#### Payments
+Stripe is one gateway partner. Easy to use too. Made an Account and set the Env to sandbox for testing. Then from the API keys, took the secret key and saved it in my .env file since everything else is handled in the project. This means we are able to place orders now.
+
+#### Mongo Clusters
+So we have the mongo cluster (cluster0) and DB (tomato-db) used here. We can get that info from the connection link. Or if in case needed, we can change the link to point the DB of our choice.
+
+## Note
+This Project is a working Monolithic project that can be run on your own system. Follow the Readme for more info.

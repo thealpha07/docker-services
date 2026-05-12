@@ -1,6 +1,5 @@
-# Docker Services Learning Repo
-This repos has a clone project that was monolithic and built with below techs and structure which we will convert into a Docker services oriented project.
-
+## MERN stack Monolith Repo
+A clone of comprehensive, monolithic MERN stack food delivery application featuring a customer-facing storefront, a secure admin dashboard, and full Stripe payment integration.
 ## Features
 
 - User Panel
@@ -21,77 +20,148 @@ This repos has a clone project that was monolithic and built with below techs an
 - Role-Based Identification
 - Beautiful Alerts
 
-## Run Locally
+This repository contains three distinct micro-environments:
 
-Clone the project
+- **Frontend:** React application (Vite) for the customer store and cart.
+    
+- **Admin:** React application (Vite) for inventory and order management.
+    
+- **Backend:** Node.js/Express server acting as the API gateway and connecting to MongoDB.
+    
 
-```bash
-    git clone https://github.com/thealpha07/docker-services
+---
+
+## 🛠️ Installation & Setup
+
+**1. Clone the repository**
+
+Bash
+
 ```
-Go to the project directory
-
-```bash
-    cd docker-services
-```
-Install dependencies (frontend)
-
-```bash
-    cd frontend
-    npm install
-```
-Install dependencies (admin)
-
-```bash
-    cd admin
-    npm install
-```
-Install dependencies (backend)
-
-```bash
-    cd backend
-    npm install
-```
-Setup Environment Vaiables
-
-```Make .env file in "backend" folder and store environment Variables
-  JWT_SECRET=YOUR_SECRET_TEXT
-  SALT=YOUR_SALT_VALUE
-  MONGO_URL=YOUR_DATABASE_URL
-  STRIPE_SECRET_KEY=YOUR_KEY
- ```
-
-Setup the Frontend and Backend URL
-   - App.jsx in Admin folder
-      const url = YOUR_BACKEND_URL
-     
-  - StoreContext.js in Frontend folder
-      const url = YOUR_BACKEND_URL
-
-  - orderController in Backend folder
-      const frontend_url = YOUR_FRONTEND_URL 
-
-Start the Backend server
-
-```bash
-    nodemon server.js
+git clone https://github.com/thealpha07/tomato-monolith.git
+cd tomato-monolith
 ```
 
-Start the Frontend server
+**2. Install dependencies** You will need to install the Node modules for all three environments independently.
 
-```bash
-    npm start
+Bash
+
+```
+# Install Frontend dependencies
+cd frontend
+npm install
+cd ..
+
+# Install Admin dependencies
+cd admin
+npm install
+cd ..
+
+# Install Backend dependencies
+cd backend
+npm install
+cd ..
 ```
 
-Start the Backend server
+---
 
-```bash
-    npm start
+## 🔐 Environment Variables
+
+This project strictly uses environment variables to maintain security and portability. You must create a `.env` file in **each** of the three main directories.
+
+### Backend (`backend/.env`)
+
+Create a `.env` file inside the `backend` folder and add the following keys:
+
+Code snippet
+
 ```
-## Tech Stack
-* [React](https://reactjs.org/)
-* [Node.js](https://nodejs.org/en)
-* [Express.js](https://expressjs.com/)
-* [Mongodb](https://www.mongodb.com/)
-* [Stripe](https://stripe.com/)
-* [JWT-Authentication](https://jwt.io/introduction)
-* [Multer](https://www.npmjs.com/package/multer)
+# Security
+JWT_SECRET=your_super_secret_jwt_string
+SALT=10
+
+# Database (Use the legacy connection string to bypass strict DNS blocks)
+MONGO_URL=mongodb://<username>:<password>@cluster-shard-00.mongodb.net:27017/<db-name>?ssl=true&replicaSet=atlas-shard-0&authSource=admin
+
+# Third-Party APIs
+STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key_here
+
+# Cross-Origin
+FRONTEND_URL=http://localhost:5173
+
+```
+
+### Frontend (`frontend/.env`)
+
+Create a `.env` file inside the `frontend` folder:
+
+Code snippet
+
+```
+VITE_BACKEND_URL=http://localhost:4000
+```
+
+### Admin (`admin/.env`)
+
+Create a `.env` file inside the `admin` folder:
+
+Code snippet
+
+```
+VITE_BACKEND_URL=http://localhost:4000
+```
+
+---
+
+## 🏃‍♂️ Running the Application
+
+To run the application locally, you will need to start all three servers in separate terminal windows.
+
+**Terminal 1: Start the Backend Server**
+
+Bash
+
+```
+cd backend
+npm run dev
+```
+
+_(Server should initialize on Port 4000 and log "DB Connected")_
+
+**Terminal 2: Start the Customer Frontend**
+
+Bash
+
+```
+cd frontend
+npm run dev
+```
+
+_(App will be available at http://localhost:5173)_
+
+**Terminal 3: Start the Admin Panel**
+
+Bash
+
+```
+cd admin
+npm run dev
+```
+
+_(App will be available at http://localhost:5174)_
+
+---
+
+## 💳 Testing Payments (Stripe Sandbox)
+
+The application is configured to use Stripe in Test Mode. To simulate a successful checkout:
+
+- **Card Number:** `4242 4242 4242 4242`
+    
+- **Expiry Date:** Any future date (e.g., `12/28`)
+    
+- **CVC:** Any 3 digits (e.g., `123`)
+  
+  
+#### Note: 
+The credits go to the original developer and no code is owned by me. This is a clone repository for my personal learning.
