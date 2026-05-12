@@ -49,3 +49,9 @@ three or more hyphens `---`, asterisks `***`, or underscores `___` on a line
 So on major thing I forgot was that not everything is to be saved in my repo. Previously we only sent core files since the CM team took care of the build, but as a Solo developer I need to understand and also keep note of the CI/CD Devops pipelines. 
 So what files to include and what to ignore? kinda confusing but let's try understanding.
 This is a MERN stack Monolith so the build files will include node modules, archives, credentials, logs, build outputs and compiled files and foremost the env files too. All these are included in the .gitignore file.
+
+#### URLS Setup
+Hardcoding URLs are a easy way for local env Runs but in the long run it will cause me issues when I Containerize or host the projects. The better way I learnt is to create local .env variables and dynamically pass the URLs across the files.
+
+Note: to make sure the user/container knows what the .env files should have we create a .env.example with dummy values that will be pushed to repo.
+
