@@ -9,10 +9,12 @@ const Footer = () => {
         <div className="footer-content-left">
           <img src={assets.logo} alt="" />
           <p>
-            Tomato was made by two developers who on one rainy night were very
-            hungry but could not order food. The Frontend Dev worked at Zomato
-            and the Backend Dev worked at Swiggy. They vibe coded the whole 
-            platform within the same night and ate Ghee podi Idli at Rameshwaram.
+            Tomato was built by two hungry developers on a rainy Bangalore night 
+            after both Zomato and Swiggy failed them. The Frontend Dev worked at 
+            Zomato, the Backend Dev worked at Swiggy. Out of pure spite, they 
+            vibe coded the entire platform overnight fueled by Red Bull and Rage.
+            Then the app crashed so both of them drove to Rameshwaram cafe and 
+            ordered Ghee Podi Idli. #Bangalore_Startups
           </p>
           <div className="footer-social-icons">
             <img src={assets.facebook_icon} alt="" />
